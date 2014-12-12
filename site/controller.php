@@ -9,7 +9,7 @@ jimport('joomla.application.component.controller');
 /**
  * Component BIS Controller
  */
-class BisController extends JController {
+class BisController extends JControllerLegacy {
 
     function display() {
         //Set the default view, just in case

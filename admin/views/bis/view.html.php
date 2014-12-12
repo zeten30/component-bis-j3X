@@ -6,7 +6,7 @@ defined('_JEXEC') or die('Restricted access');
 // import Joomla view library
 jimport('joomla.application.component.view');
 
-class bisViewBis extends JView {
+class bisViewBis extends JViewLegacy {
 
     function display($tpl = null) {
         JToolBarHelper::custom('com_bis', 'help');

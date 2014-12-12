@@ -4,7 +4,7 @@
 defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.view');
 
-class bisViewDetail extends JView {
+class bisViewDetail extends JViewLegacy {
 
     function display($tpl = null) {
 

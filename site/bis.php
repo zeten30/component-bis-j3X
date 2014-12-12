@@ -4,12 +4,12 @@
 defined('_JEXEC') or die('Restricted access');
 
 // Require the base controller
-require_once (JPATH_COMPONENT . DS . 'controller.php');
+require_once (JPATH_COMPONENT . DIRECTORY_SEPARATOR . 'controller.php');
 //Require model
-require_once (JPATH_COMPONENT . DS . 'models' . DS . 'bis.php');
+require_once (JPATH_COMPONENT . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'bis.php');
 
 // Get an instance of the controller
-$controller = JController::getInstance('Bis');
+$controller = JControllerLegacy::getInstance('Bis');
 
 // Perform the Request task
 $controller->execute(JRequest::getCmd('task'));

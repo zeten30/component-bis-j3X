@@ -9,7 +9,7 @@ jimport('joomla.application.component.controller');
 /**
  * Component BIS Controller
  */
-class BisController extends JController {
+class BisController extends JControllerLegacy {
 
     function display($cachable = false) {
         // set default view if not set

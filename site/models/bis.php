@@ -5,7 +5,7 @@ defined('_JEXEC') or die('Restricted access');
 jimport('joomla.application.component.modelitem');
 
 //We need content plugin BIS to be installed !!!
-require_once (JPATH_BASE . DS . 'plugins' . DS . 'content' . DS . 'bis' . DS . 'myr' . DS . 'myr.php');
+require_once (JPATH_BASE . DIRECTORY_SEPARATOR . 'plugins' . DIRECTORY_SEPARATOR . 'content' . DIRECTORY_SEPARATOR . 'bis' . DIRECTORY_SEPARATOR . 'myr' . DIRECTORY_SEPARATOR . 'myr.php');
 
 class bisModelBis extends JModelItem {
 
@@ -367,7 +367,7 @@ class bisModelBis extends JModelItem {
 //set the url, number of POST vars, POST data
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, count($post_data));
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+        curl_setopt($ch, CURLOPT_POSTFIELDIRECTORY_SEPARATOR, $fields_string);
 
 //execute post
         $result = curl_exec($ch);
