@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_BIS_DETAIL">
+        <message>
+      <![CDATA[COM_BIS_DETAIL_DESC]]>
+        </message>
+    </layout>
+  
+    <fields name="params">
+
+        <fieldset name="basic">
+            <field name="bis_id" type="text" default="0"
+                   label="COM_BIS_ID_LBL"
+                   description="COM_BIS_ID_DESC" />
+            <field name="tpl-head-detail" type="textarea" default=""
+                   label="COM_BIS_HEAD_LBL"
+                   description="COM_BIS_HEAD_DESC"
+                   rows="3" cols="40" filter="raw" />
+            <field name="tpl-item-detail" type="textarea"
+                   default='
+&lt;div&gt;\n
+&lt;h3&gt;##nazev## \n
+##ikona_prg_plg_bis=38,tmava,ikona-pr##\n
+&lt;/h3&gt;\n
+&lt;p&gt;\n
+&lt;em&gt;##od## \n
+---if_not promenna=sraz,---\n
+##sraz## \n
+------\n
+- ##do##&lt;/em&gt;\n
+&lt;/p&gt;\n
+&lt;div&gt;\n
+&lt;div style="float: right"&gt;##obrazek_plg_bis=200,0,bis_img##&lt;/div&gt;\n
+##text##\n
+&lt;/div&gt;\n
+&lt;table&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Druh:&lt;/th&gt;\n
+&lt;td&gt;##typ##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Místo:&lt;/th&gt;\n
+&lt;td&gt;##lokalita## &lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Věk:&lt;/th&gt;\n
+&lt;td&gt;##vek_plg_bis## &lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Pořádající ZČ nebo klub:&lt;/th&gt;\n
+&lt;td&gt;##porada##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Organizátorský tým:&lt;/th&gt;\n
+&lt;td&gt;##org##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Kontakt:&lt;/th&gt;\n
+&lt;td&gt;##kontakt##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Telefon:&lt;/th&gt;\n
+&lt;td&gt;##kontakt_telefon## &lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Email:&lt;/th&gt;\n
+&lt;td&gt;##kontakt_email_plg_bis##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Web:&lt;/th&gt;\n
+&lt;td&gt;##web_plg_bis##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;/table&gt;\n
+&lt;/div&gt;\n
+            ' 
+                   label="COM_BIS_ACTION_LBL"
+                   description="COM_BIS_ACTION_DESC"
+                   rows="9" cols="40" filter="raw" />
+            <field name="tpl-foot-detail" type="textarea" default=""
+                   label="COM_BIS_FOOT_LBL"
+                   description="COM_BIS_FOOT_DESC"
+                   rows="3" cols="40" filter="raw" />
+        </fieldset>
+
+    </fields>
+  
+</metadata>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_BIS_LIST">
+        <message>
+      <![CDATA[COM_BIS_LIST_DESC]]>
+        </message>
+    </layout>
+
+    <fields name="params">
+
+        <fieldset name="basic">
+            <field
+                name="show-type" type="list" default="all"
+                label="COM_BIS_SHOW_LBL"
+                description="COM_BIS_SHOW_DESC">
+                <option value="tab">COM_BIS_TABVIEW</option>
+                <option value="all">COM_BIS_ALL_ACTIONS</option>
+                <option value="vik">COM_BIS_ONLY_VIK</option>
+                <option value="tabor">COM_BIS_ONLY_CAMP</option>
+                <option value="klub">COM_BIS_ONLY_CLUBS</option>
+                <option value="ekostan">COM_BIS_ONLY_EKO</option>
+                <option value="vikeko">COM_BIS_ONLY_VIKEKO</option>
+                <option value="custom">COM_BIS_CUST_QUERY</option>
+            </field>
+            <field name="custom-query" type="text" default="query=akce"
+                   label="COM_BIS_CUST_QUERY_LBL"
+                   description="COM_BIS_CUST_QUERY_DESC" />
+            <field name="only-year" type="text" default=""
+                   label="COM_BIS_ONLY_YEAR_LBL"
+                   description="COM_BIS_ONLY_YEAR_DESC" />
+            <field name="only-program" type="list" default=""
+                   label="COM_BIS_ONLY_PROGRAM_LBL"
+                   description="COM_BIS_ONLY_PROGRAM_DESC">
+                <option value=""></option>
+                <option value="ap">COM_BIS_AP</option>
+                <option value="pamatky">COM_BIS_APAM</option>
+                <option value="ekostan">COM_BIS_EKOSTAN</option>
+                <option value="brdo">COM_BIS_BRDO</option>
+                <option value="psb">COM_BIS_PSB</option>
+                <option value="vzdelavani">COM_BIS_EDU</option>
+            </field>
+            <field name="use-mod-bis-filter" type="list" default="0"
+                   label="COM_BIS_USE_MBF_LBL" 
+                   description="COM_BIS_USE_MBF_DESC">
+                <option value="0">COM_BIS_NO</option>
+                <option value="1">COM_BIS_YES</option>
+            </field>
+            <field name="show-bis-application-form" type="list" default="0"
+                   label="COM_BIS_SHOW_BIS_APPL_FORM" 
+                   description="COM_BIS_SHOW_BIS_APPL_FORM_DESC">
+                <option value="0">COM_BIS_NO</option>
+                <option value="1">COM_BIS_YES</option>
+            </field>
+        </fieldset>
+
+        <fieldset name="tab_properties" label="COM_BIS_TABPROP" desctiption="COM_BIS_TABPROP_DESC">
+            <field name="show-camp-tab" type="list" default="1"
+                   label="COM_BIS_TAB_CAMP_LBL" 
+                   description="COM_BIS_TAB_CAMP_DESC">
+                <option value="0">COM_BIS_HIDE</option>
+                <option value="1">1.</option>
+                <option value="2">2.</option>
+                <option value="3">3.</option>
+            </field>
+            <field name="show-vik-tab" type="list" default="2"
+                   label="COM_BIS_TAB_VIK_LBL" 
+                   description="COM_BIS_TAB_VIK_DESC">
+                <option value="0">COM_BIS_HIDE</option>
+                <option value="1">1.</option>
+                <option value="2">2.</option>
+                <option value="3">3.</option>
+            </field>
+            <field name="show-vikeko-tab" type="list" default="0"
+                   label="COM_BIS_TAB_VIKEKO_LBL" 
+                   description="COM_BIS_TAB_VIKEKO_DESC">
+                <option value="0">COM_BIS_HIDE</option>
+                <option value="1">1.</option>
+                <option value="2">2.</option>
+                <option value="3">3.</option>
+            </field>
+            <field name="show-eko-tab" type="list" default="0"
+                   label="COM_BIS_TAB_EKO_LBL" 
+                   description="COM_BIS_TAB_EKO_DESC">
+                <option value="0">COM_BIS_HIDE</option>
+                <option value="1">1.</option>
+                <option value="2">2.</option>
+                <option value="3">3.</option>
+            </field>
+            <field name="show-club-tab" type="list" default="3"
+                   label="COM_BIS_TAB_CLUB_LBL" 
+                   description="COM_BIS_TAB_CLUB_DESC">
+                <option value="0">COM_BIS_HIDE</option>
+                <option value="1">1.</option>
+                <option value="2">2.</option>
+                <option value="3">3.</option>
+            </field>
+            <field name="sync-tab-mod-bis" type="list" default="0"
+                   label="COM_BIS_SYNC_TAB_LBL" 
+                   description="COM_BIS_SYNC_TAB_DESC">
+                <option value="0">COM_BIS_NO</option>
+                <option value="1">COM_BIS_YES</option>
+            </field>
+        </fieldset>
+
+        <fieldset name="view_style" label="COM_BIS_TL" desctiption="COM_BIS_TL_DESC">
+            <field name="css_class" type="text" default="com_bis"
+                   label="COM_BIS_CSS_CLASS_LBL"
+                   description="COM_BIS_CSS_CLASS_DESC" />
+            <field name="tpl-head" type="textarea" default=""
+                   label="COM_BIS_HEAD_LBL"
+                   description="COM_BIS_HEAD_DESC"
+                   rows="3" cols="40" filter="raw" />
+            <field name="tpl-item" type="textarea"
+                   default='
+&lt;a name="##id##"&gt;&lt;/a&gt;\n
+&lt;div style="clear: right;" class="##even_odd_plg_bis##"&gt;\n
+&lt;h3&gt;\n
+&lt;a href="##link_detail_plg_bis##"&gt;
+##nazev##\n
+&lt;/a&gt; \n
+##ikona_prg_plg_bis=26,tmava,ikona-pr##&lt;/h3&gt;\n
+&lt;p&gt;&lt;em&gt;##od_do_plg_bis##&lt;/em&gt;&lt;/p&gt;\n
+&lt;div&gt;\n
+---if obrazek---\n
+&lt;div style="float: right"&gt;##obrazek_plg_bis=200,0,bis_img##&lt;/div&gt;\n
+------\n
+##text##\n
+&lt;/div&gt;\n
+&lt;p&gt;\n
+&lt;strong&gt;Místo:&lt;/strong&gt; ##lokalita## \n
+---if_not promenna=sraz,---\n
+&lt;strong&gt;Sraz:&lt;/strong&gt; ##sraz## \n
+------\n
+&lt;strong&gt;Věk:&lt;/strong&gt; ##vek_plg_bis## \n
+&lt;strong&gt;Kontakt:&lt;/strong&gt; ##kontakt## \n
+&lt;strong&gt;Telefon:&lt;/strong&gt; ##kontakt_telefon## \n
+---if_not promenna=web,---\n
+&lt;strong&gt;Web:&lt;/strong&gt; ##web_plg_bis##\n
+------\n
+&lt;strong&gt;Email:&lt;/strong&gt; ##kontakt_email_plg_bis## \n
+---if prilohy---\n
+&lt;strong&gt;Přílohy:&lt;/strong&gt; \n
+##staz_priloh_plg_bis##\n
+------\n
+&lt;/p&gt;\n
+&lt;/div&gt;\n' 
+                   label="COM_BIS_ACTION_LBL"
+                   description="COM_BIS_ACTION_DESC"
+                   rows="9" cols="40" filter="raw" />
+            <field name="tpl-foot" type="textarea" default=""
+                   label="COM_BIS_FOOT_LBL"
+                   description="COM_BIS_FOOT_DESC"
+                   rows="3" cols="40" filter="raw" />
+        </fieldset>
+    
+        <fieldset name="view_style_detail" label="COM_BIS_TL_DETAIL" desctiption="COM_BIS_TL_DETAIL_DESC">
+            <field name="tpl-head-detail" type="textarea" default=""
+                   label="COM_BIS_HEAD_LBL"
+                   description="COM_BIS_HEAD_DESC"
+                   rows="3" cols="40" filter="raw" />
+            <field name="tpl-item-detail" type="textarea"
+                   default='
+&lt;div&gt;\n
+&lt;h3&gt;##nazev## \n
+##ikona_prg_plg_bis=38,tmava,ikona-pr##\n
+&lt;/h3&gt;\n
+&lt;p&gt;\n
+&lt;em&gt;##od## \n
+---if_not promenna=sraz,---\n
+##sraz## \n
+------\n
+- ##do##&lt;/em&gt;\n
+&lt;/p&gt;\n
+&lt;div&gt;\n
+&lt;div style="float: right"&gt;##obrazek_plg_bis=200,0,bis_img##&lt;/div&gt;\n
+##text##\n
+&lt;/div&gt;\n
+&lt;table&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Druh:&lt;/th&gt;\n
+&lt;td&gt;##typ##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Místo:&lt;/th&gt;\n
+&lt;td&gt;##lokalita## &lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Věk:&lt;/th&gt;\n
+&lt;td&gt;##vek_plg_bis## &lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Pořádající ZČ nebo klub:&lt;/th&gt;\n
+&lt;td&gt;##porada##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Organizátorský tým:&lt;/th&gt;\n
+&lt;td&gt;##org##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Kontakt:&lt;/th&gt;\n
+&lt;td&gt;##kontakt##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Telefon:&lt;/th&gt;\n
+&lt;td&gt;##kontakt_telefon## &lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Email:&lt;/th&gt;\n
+&lt;td&gt;##kontakt_email_plg_bis##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;tr&gt;\n
+&lt;th&gt;Web:&lt;/th&gt;\n
+&lt;td&gt;##web_plg_bis##&lt;/td&gt;\n
+&lt;/tr&gt;\n
+&lt;/table&gt;\n
+&lt;/div&gt;\n
+            ' 
+                   label="COM_BIS_ACTION_LBL"
+                   description="COM_BIS_ACTION_DESC"
+                   rows="9" cols="40" filter="raw" />
+            <field name="tpl-foot-detail" type="textarea" default=""
+                   label="COM_BIS_FOOT_LBL"
+                   description="COM_BIS_FOOT_DESC"
+                   rows="3" cols="40" filter="raw" />
+            <field name="show-backlink" type="list" default="2"
+                   label="COM_BIS_SHOW_BACKLINK_LBL" 
+                   description="COM_BIS_SHOW_BACKLINK_DESC">
+                <option value="0">COM_BIS_HIDE</option>
+                <option value="1">COM_BIS_BACKLINK_TOP</option>
+                <option value="2">COM_BIS_BACKLINK_BOTTOM</option>
+                <option value="3">COM_BIS_BACKLINK_BOTH</option>
+            </field>
+        </fieldset>
+
+    </fields>
+
+</metadata>
