@@ -336,13 +336,9 @@ class bisModelBis extends JModelItem {
     public function saveApplicationForm($givenname, $surname, $phonenumber, $email, $birthdate, $ad_info, $comment, $id_akce, $org_email, $event_name) {
 
         $myr = new myr;
-
-        $url = $myr->params->get('bis_url') . '?query=prihlaska';
-
-        if ($myr->params->get('bis_user') != '') {
-            $url.='&user=' . $myr->params->get('bis_user');
-        }
-
+        $url = $myr->params->bis_url . '?query=prihlaska';
+        //$url.='&user=' . $myr->params->bis_user . '&password=' . $myr->params->bis_password;
+        
         $post_data = array(
             'jmeno' => $givenname,
             'prijmeni' => $surname,
@@ -352,8 +348,8 @@ class bisModelBis extends JModelItem {
             'datum_narozeni' => $birthdate,
             'add_info' => $ad_info,
             'poznamka' => $comment,
-            'user' => $myr->params->get('bis_user'),
-            'password' => $myr->params->get('bis_password')
+            'user' => $myr->params->bis_user,
+            'password' => $myr->params->bis_password
         );
 
         foreach ($post_data as $key => $value) {
@@ -364,12 +360,13 @@ class bisModelBis extends JModelItem {
         //open connection
         $ch = curl_init();
 
-//set the url, number of POST vars, POST data
+        //set the url, number of POST vars, POST data
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, count($post_data));
-        curl_setopt($ch, CURLOPT_POSTFIELDIRECTORY_SEPARATOR, $fields_string);
-
-//execute post
+        //curl_setopt($ch, CURLOPT_POSTFIELDIRECTORY_SEPARATOR, $fields_string);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,8); 
+        curl_setopt($ch, CURLOPT_TIMEOUT, 12);
+        //execute post
         $result = curl_exec($ch);
 
         curl_close($ch);
@@ -377,10 +374,10 @@ class bisModelBis extends JModelItem {
 
         //Send e-mails\
         $mailer = JFactory::getMailer();
-        $config = JFactory::getConfig();
-        $sender = array(
-            $config->getValue('config.mailfrom'),
-            $config->getValue('config.fromname'));
+        $mailfrom = JFactory::getApplication()->get('mailfrom', "web@brontosaurus.cz");
+        $fromname = JFactory::getApplication()->get('fromname', "Web HB");
+        
+        $sender = array($mailfrom, $fromname);
 
         $mailer->setSender($sender);
 

@@ -2,7 +2,7 @@
 <extension version="3.1" type="component" method="upgrade">
     <name>COM_BIS</name>
     <author>Milan Zink</author>
-    <creationDate>04/2012</creationDate>
+    <creationDate>12/204</creationDate>
     <copyright> </copyright>
     <license>GNU - general public license</license>
     <authorEmail>zeten30@gmail.com</authorEmail>
