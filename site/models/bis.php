@@ -368,21 +368,13 @@ class bisModelBis extends JModelItem {
         curl_setopt($ch, CURLOPT_TIMEOUT, 12);
         //execute post
         $result = curl_exec($ch);
-
         curl_close($ch);
 
+        //Send e-mails
+        $from = "web@brontosaurus.cz";
+        $fromname = "Web HB";
 
-        //Send e-mails\
-        $mailer = JFactory::getMailer();
-        $mailfrom = JFactory::getApplication()->get('mailfrom', "web@brontosaurus.cz");
-        $fromname = JFactory::getApplication()->get('fromname', "Web HB");
-        
-        $sender = array($mailfrom, $fromname);
-
-        $mailer->setSender($sender);
-
-        $recipient = array($org_email, $email);
-        $mailer->addRecipient($recipient);
+        $recipients = array($org_email, $email);
 
         $body = "Prihlaska na akci: $id_akce - $event_name \n\n
         Jmeno : $givenname \n
@@ -392,15 +384,21 @@ class bisModelBis extends JModelItem {
         Datum_narozeni : $birthdate \n
         Doplnujici dotaz : $ad_info \n
         Poznamka : $comment \n";
+        
+		// clear body and subject
+		jimport( 'joomla.mail.helper' );
+		$body = JMailHelper::cleanBody($body);
+		$subject = JMailHelper::cleanSubject("Prihlaska na akci: $id_akce - $event_name");
 
-        $mailer->setSubject("Prihlaska na akci: $id_akce - $event_name");
-        $mailer->setBody($body);
-
-        $send = $mailer->Send();
-        if ($send !== true) {
-            echo 'Error sending email - Check config or your SMTP server.';
-        }
-
+		if ( count($recipients) > 0 ) {
+		  foreach($recipients as $email_recipient) {
+			// clean email address
+			$email_recipient = JMailHelper::cleanAddress($email_recipient);
+			// send the message
+			$isOK = JFactory::getMailer()->sendMail($from, $fromname, $email_recipient, $subject, $body, $mode, $cc, $bcc, $file_attachments, $replyto, $replytoname);
+		  }
+		}
+		
         if ($result) {
             return true;
         } else {
