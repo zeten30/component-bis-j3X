@@ -363,7 +363,7 @@ class bisModelBis extends JModelItem {
         //set the url, number of POST vars, POST data
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, count($post_data));
-        //curl_setopt($ch, CURLOPT_POSTFIELDIRECTORY_SEPARATOR, $fields_string);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,8); 
         curl_setopt($ch, CURLOPT_TIMEOUT, 12);
         //execute post
