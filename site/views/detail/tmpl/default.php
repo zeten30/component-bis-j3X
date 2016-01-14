@@ -19,7 +19,7 @@ echo '</div>';
 
 
 //Application form
-//Allowed by BIS 
+//Allowed by BIS
 if ($this->app_form_show == "1") {
 
     //Alloowed by param
@@ -72,6 +72,18 @@ if ($this->app_form_show == "1") {
                             <tr>
                                 <td><label for="ad_info"><?php echo $this->app_form_add_question; ?></label></td>
                                 <td><textarea id="ad_info" name="ad_info" class="required" rows="3" cols="30"></textarea></td>
+                            </tr
+                        <?php } ?>
+                        <?php if (strlen($this->app_form_add_question2) > 0) { ?>
+                            <tr>
+                                <td><label for="ad_info2"><?php echo $this->app_form_add_question2; ?></label></td>
+                                <td><textarea id="ad_info2" name="ad_info2" class="required" rows="3" cols="30"></textarea></td>
+                            </tr
+                        <?php } ?>
+                        <?php if (strlen($this->app_form_add_question3) > 0) { ?>
+                            <tr>
+                                <td><label for="ad_info3"><?php echo $this->app_form_add_question3; ?></label></td>
+                                <td><textarea id="ad_info3" name="ad_info3" class="required" rows="3" cols="30"></textarea></td>
                             </tr
                         <?php } ?>
                         <tr>

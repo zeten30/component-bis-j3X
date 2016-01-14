@@ -53,6 +53,8 @@ class bisViewDetail extends JViewLegacy {
             $email = JRequest::getVar('eladdr');
             $birthdate = JRequest::getVar('birthdate');
             $ad_info = JRequest::getVar('ad_info');
+            $ad_info2 = JRequest::getVar('ad_info2');
+            $ad_info3 = JRequest::getVar('ad_info3');
             $comment = JRequest::getVar('comment');
             $fake = JRequest::getVar('email');
             $org_email = JRequest::getVar('org-email');
@@ -60,7 +62,7 @@ class bisViewDetail extends JViewLegacy {
 
             if (strlen($fake) < 1) {
                 $app_form_result = $model
-                        ->saveApplicationForm($givenname, $surname, $phonenumber, $email, $birthdate, $ad_info, $comment, $bis_id, $org_email, $event_name);
+                        ->saveApplicationForm($givenname, $surname, $phonenumber, $email, $birthdate, $ad_info, $ad_info2, $ad_info3, $comment, $bis_id, $org_email, $event_name);
             }
 
             if ($app_form_result) {
@@ -129,12 +131,26 @@ class bisViewDetail extends JViewLegacy {
 
         //custom question for application form?
         $app_form_add_question = $result->data->add_info_title;
+        $app_form_add_question2 = $result->data->add_info_title_2;
+        $app_form_add_question3 = $result->data->add_info_title_3;
         $app_form_show = $result->data->adresar;
 
         if ($app_form_add_question != NULL) {
             $this->assignRef('app_form_add_question', $app_form_add_question);
         } else {
             $this->assignRef('app_form_add_question', $app_form_add_question);
+        }
+
+        if ($app_form_add_question2 != NULL) {
+            $this->assignRef('app_form_add_question2', $app_form_add_question2);
+        } else {
+            $this->assignRef('app_form_add_question2', $app_form_add_question2);
+        }
+
+        if ($app_form_add_question3 != NULL) {
+            $this->assignRef('app_form_add_question3', $app_form_add_question3);
+        } else {
+            $this->assignRef('app_form_add_question3', $app_form_add_question3);
         }
 
         //Hide application form on request?

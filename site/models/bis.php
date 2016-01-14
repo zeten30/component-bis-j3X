@@ -333,12 +333,12 @@ class bisModelBis extends JModelItem {
         return $filter_used;
     }
 
-    public function saveApplicationForm($givenname, $surname, $phonenumber, $email, $birthdate, $ad_info, $comment, $id_akce, $org_email, $event_name) {
+    public function saveApplicationForm($givenname, $surname, $phonenumber, $email, $birthdate, $ad_info, $ad_info2, $ad_info3, $comment, $id_akce, $org_email, $event_name) {
 
         $myr = new myr;
         $url = $myr->params->bis_url . '?query=prihlaska';
         //$url.='&user=' . $myr->params->bis_user . '&password=' . $myr->params->bis_password;
-        
+
         $post_data = array(
             'jmeno' => $givenname,
             'prijmeni' => $surname,
@@ -347,6 +347,8 @@ class bisModelBis extends JModelItem {
             'akce' => $id_akce,
             'datum_narozeni' => $birthdate,
             'add_info' => $ad_info,
+            'add_info_2' => $ad_info2,
+            'add_info_3' => $ad_info3,
             'poznamka' => $comment,
             'user' => $myr->params->bis_user,
             'password' => $myr->params->bis_password
@@ -364,7 +366,7 @@ class bisModelBis extends JModelItem {
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, count($post_data));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,8); 
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,8);
         curl_setopt($ch, CURLOPT_TIMEOUT, 12);
         //execute post
         $result = curl_exec($ch);
@@ -382,9 +384,11 @@ class bisModelBis extends JModelItem {
         Telefon : $phonenumber \n
         E-mail : $email \n
         Datum_narozeni : $birthdate \n
-        Doplnujici dotaz : $ad_info \n
+        Doplnujici dotaz 1: $ad_info \n
+        Doplnujici dotaz 2: $ad_info2 \n
+        Doplnujici dotaz 3: $ad_info3 \n
         Poznamka : $comment \n";
-        
+
 		// clear body and subject
 		jimport( 'joomla.mail.helper' );
 		$body = JMailHelper::cleanBody($body);
@@ -398,7 +402,7 @@ class bisModelBis extends JModelItem {
 			$isOK = JFactory::getMailer()->sendMail($from, $fromname, $email_recipient, $subject, $body, $mode, $cc, $bcc, $file_attachments, $replyto, $replytoname);
 		  }
 		}
-		
+
         if ($result) {
             return true;
         } else {
