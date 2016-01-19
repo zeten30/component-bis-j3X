@@ -55,6 +55,9 @@ class bisViewDetail extends JViewLegacy {
             $ad_info = JRequest::getVar('ad_info');
             $ad_info2 = JRequest::getVar('ad_info2');
             $ad_info3 = JRequest::getVar('ad_info3');
+            $ad_title = JRequest::getVar('ad_title');
+            $ad_title2 = JRequest::getVar('ad_title2');
+            $ad_title3 = JRequest::getVar('ad_title3');
             $comment = JRequest::getVar('comment');
             $fake = JRequest::getVar('email');
             $org_email = JRequest::getVar('org-email');
@@ -62,7 +65,7 @@ class bisViewDetail extends JViewLegacy {
 
             if (strlen($fake) < 1) {
                 $app_form_result = $model
-                        ->saveApplicationForm($givenname, $surname, $phonenumber, $email, $birthdate, $ad_info, $ad_info2, $ad_info3, $comment, $bis_id, $org_email, $event_name);
+                        ->saveApplicationForm($givenname, $surname, $phonenumber, $email, $birthdate, $ad_info, $ad_info2, $ad_info3, $ad_title, $ad_title2, $ad_title3, $comment, $bis_id, $org_email, $event_name);
             }
 
             if ($app_form_result) {

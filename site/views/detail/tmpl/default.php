@@ -71,19 +71,28 @@ if ($this->app_form_show == "1") {
                         <?php if (strlen($this->app_form_add_question) > 0) { ?>
                             <tr>
                                 <td><label for="ad_info"><?php echo $this->app_form_add_question; ?></label></td>
-                                <td><textarea id="ad_info" name="ad_info" class="required" rows="3" cols="30"></textarea></td>
+                                <td>
+                                  <textarea id="ad_info" name="ad_info" class="required" rows="3" cols="30"></textarea>
+                                  <input type="hidden" name="ad_title" id="ad_title" value="<?php echo $this->app_form_add_question; ?>" />
+                                </td>
                             </tr
                         <?php } ?>
                         <?php if (strlen($this->app_form_add_question2) > 0) { ?>
                             <tr>
                                 <td><label for="ad_info2"><?php echo $this->app_form_add_question2; ?></label></td>
-                                <td><textarea id="ad_info2" name="ad_info2" class="required" rows="3" cols="30"></textarea></td>
+                                <td>
+                                  <textarea id="ad_info2" name="ad_info2" class="required" rows="3" cols="30"></textarea>
+                                  <input type="hidden" name="ad_title2" id="ad_title2" value="<?php echo $this->app_form_add_question2; ?>" />
+                                </td>
                             </tr
                         <?php } ?>
                         <?php if (strlen($this->app_form_add_question3) > 0) { ?>
                             <tr>
                                 <td><label for="ad_info3"><?php echo $this->app_form_add_question3; ?></label></td>
-                                <td><textarea id="ad_info3" name="ad_info3" class="required" rows="3" cols="30"></textarea></td>
+                                <td>
+                                  <textarea id="ad_info3" name="ad_info3" class="required" rows="3" cols="30"></textarea>
+                                  <input type="hidden" name="ad_title3" id="ad_title3" value="<?php echo $this->app_form_add_question3; ?>" />
+                                </td>
                             </tr
                         <?php } ?>
                         <tr>

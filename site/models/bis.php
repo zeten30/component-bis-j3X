@@ -333,7 +333,7 @@ class bisModelBis extends JModelItem {
         return $filter_used;
     }
 
-    public function saveApplicationForm($givenname, $surname, $phonenumber, $email, $birthdate, $ad_info, $ad_info2, $ad_info3, $comment, $id_akce, $org_email, $event_name) {
+    public function saveApplicationForm($givenname, $surname, $phonenumber, $email, $birthdate, $ad_info, $ad_info2, $ad_info3, $ad_title, $ad_title2, $ad_title3, $comment, $id_akce, $org_email, $event_name) {
 
         $myr = new myr;
         $url = $myr->params->bis_url . '?query=prihlaska';
@@ -384,9 +384,9 @@ class bisModelBis extends JModelItem {
         Telefon : $phonenumber \n
         E-mail : $email \n
         Datum_narozeni : $birthdate \n
-        Doplnujici dotaz 1: $ad_info \n
-        Doplnujici dotaz 2: $ad_info2 \n
-        Doplnujici dotaz 3: $ad_info3 \n
+        $ad_title $ad_info \n
+        $ad_title2 $ad_info2 \n
+        $ad_title3 $ad_info3 \n
         Poznamka : $comment \n";
 
 		// clear body and subject
