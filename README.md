@@ -1,7 +1,7 @@
 Content plugin BIS - Joomla 3.X
 ===============================
 
-Joomla komponenta/Content plugin pro propojení redakčního systému Joomla 3.X s Brontosauřím Informačním Systémem - BISem. Umožní zobrazení dat z BISu ve formě kalendáře akcí. Obsahuje pohled seznam a detail
+Joomla komponenta pro propojení redakčního systému Joomla 3.X s Brontosauřím Informačním Systémem - BISem. Umožní zobrazení dat z BISu ve formě kalendáře akcí. Obsahuje pohled seznam a detail
 
 
 Instalace
