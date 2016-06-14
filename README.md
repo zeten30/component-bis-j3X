@@ -15,5 +15,4 @@ Nastavení
 - stránku kalendáře přidáme do libovolného menu jako typ 'Seznam akcí' nebo 'Detail akce'
 - ostatní nastavení jsou dostupná v záložkách
   - **Možnosti/Vzhled** : volby pro výběr akcí (tábory, víkendovky...), omezení dle roku, pouze akce některého programu HB.. atd
-  - - **Šablona seznamu/detailu** : zde je možné definovat HTML5 kód pro zobrazení dat - podrobná dokumentace viz. https://github.com/zeten30/content-plugin-bis-j3X
-  
+  - **Šablona seznamu/detailu** : zde je možné definovat HTML5 kód pro zobrazení dat - podrobná dokumentace viz. https://github.com/zeten30/content-plugin-bis-j3X
